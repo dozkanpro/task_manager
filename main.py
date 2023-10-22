@@ -1,7 +1,6 @@
 from datetime import date
 from flask import Flask, abort, render_template, redirect, url_for, flash, request
 from flask_bootstrap import Bootstrap5
-from flask_ckeditor import CKEditor
 from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user, login_required
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -10,7 +9,6 @@ from forms import RegisterForm, LoginForm, AddTaskForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8yEfBA6O6dWlSihBXox7C0sKRlm3c66b'
-ckeditor = CKEditor(app)
 Bootstrap5(app)
 
 # Login Credential
