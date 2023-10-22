@@ -1,0 +1,53 @@
+{% from "bootstrap5/form.html" import render_form %}
+ {% include("header.html") %}
+<header
+  class="masthead"
+
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-body p-4">
+                <h4 class="text-center my-3 pb-3">To Do App</h4>
+                {% if current_user.id == 1: %}
+                    {{render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+                {% endif %}
+                <table class="table mb-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">Team member</th>
+                            <th scope="col">Todo item</th>
+                            <th scope="col">Assigned Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    {% for task in tasks %}
+                    <tr id="task-{{ loop.index }}">
+                        <td>{{ task.staff.name }}</td>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.date }}</td>
+                        <td id="status-{{ loop.index }}">{{ task.status }}</td>
+                        <td>
+                            <form method="POST" action="{{ url_for('start_task', task_id=task.id) }}">
+                                <button type="submit" class="btn btn-danger">Start</button>
+                            </form>
+                            <form method="POST" action="{{ url_for('complete_task', task_id=task.id) }}">
+                                <button type="submit" class="btn btn-success ms-1">Complete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{ bootstrap.load_js() }}  <!-- Load Bootstrap JavaScript -->
+<script src="./static/js/scripts.js"></script>
+
+</div>
+</header>
+
+
