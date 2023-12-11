@@ -22,15 +22,15 @@ There are 3 task status: proposed, in progress and completed.
 - **Change** 'SECRET_KEY' with your **own**.
 
 ## Endpoints
-|Route |Usage |
-| :-:  | :-: |
-|`/ `  | For list all tasks in the database if only user is authenticated.|
-|`/register`  | For register new user into database.|
-|`/login`  | For login user.|
-|`/logout`  | For logout user.|
-|`/tasks`  | For adding a new task into the database. If only user is admin.|
-|`/start_task/<int:task_id>`  | For start a task.|
-|`/complete_task/<int:task_id>`  | For complete a task.|
+|Route |Usage |HTTP Request|
+| :-:  | :-: | :-: |
+|`/ `  | For list all tasks in the database if only user is authenticated.|"GET" |
+|`/register`  | For register new user into database.| "POST"|
+|`/login`  | For login user.|"GET" |
+|`/logout`  | For logout user.| |
+|`/tasks`  | For adding a new task into the database. If only user is admin.|"POST" |
+|`/start_task/<int:task_id>`  | For start a task.|"POST" |
+|`/complete_task/<int:task_id>`  | For complete a task.|"POST" |
 
 
 ## Features
