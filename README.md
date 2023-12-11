@@ -2,11 +2,11 @@
 This is a task manager website which required login process. 
 There are 3 task status: proposed, in progress and completed.
    
-|Task Status |Usage |
-| :-:        | :-: |
-|Proposed    |Only Administrator can add a new task into the database.|
-|In progress |Any authenticated user can start a task. Status in the task is changed in the database. |
-|Completed  |Any authenticated user can complete a task. Status in the task is changed in the database. |
+|Task Status |Usage | Flash Messages |
+| :-:        | :-: |  :-: |
+|Proposed    |Only Administrator can add a new task into the database.|"Task added successfully"|
+|In progress |Any authenticated user can start a task. Status in the task is changed in the database. |"Task started successfully" |
+|Completed  |Any authenticated user can complete a task. Status in the task is changed in the database. |"Task completed successfully" |
 
 
 ## Getting Started
@@ -24,13 +24,13 @@ There are 3 task status: proposed, in progress and completed.
 ## Endpoints
 |Route |Usage |
 | :-:  | :-: |
-|`/ `  | For Home page|
-|`/register`  | For list all coffee information on the database|
-|`/login`  | For addıng a new cafe into the list.|
-|`/logout`  | For addıng a new cafe into the list.|
-|`/tasks`  | For addıng a new cafe into the list.|
-|`/start_task/<int:task_id>`  | For addıng a new cafe into the list.|
-|`/complete_task/<int:task_id>`  | For addıng a new cafe into the list.|
+|`/ `  | For list all tasks in the database if only user is authenticated.|
+|`/register`  | For register new user into database.|
+|`/login`  | For login user.|
+|`/logout`  | For logout user.|
+|`/tasks`  | For adding a new task into the database. If only user is admin.|
+|`/start_task/<int:task_id>`  | For start a task.|
+|`/complete_task/<int:task_id>`  | For complete a task.|
 
 
 ## Features
